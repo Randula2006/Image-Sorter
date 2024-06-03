@@ -100,7 +100,15 @@ def rename_checker(phrase, phrase_uppercase, file_name):
         except Exception as e:
             print(f'Error processing file {file_name}: {e}')  # Debugging statement
     else:
-         global file_number_array
+        # trying to fix if the files are already have the correct format 
+         file_name_without_ext, file_ext = os.path.splitext(file_name)
+         parts = file_name_without_ext.strip().split('_')
+        #  the below two lines of code can sometimes break the function as they will  not output the correct format 
+         file_num , clear_file = parts
+         file_names_reordered = f'{file_num}_{clear_file}{file_ext}'
+         os.rename(file_name, file_names_reordered)
+         
+         file_number_array
          file_number_array.append(int(file_num))  # Ensure file_num is stored as an integer
          print(f'Appended {file_num} to file_number_array')  # Debugging statement
          
