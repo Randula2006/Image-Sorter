@@ -109,9 +109,14 @@ else:
 # if the file is not chcked the value is not sent to the array of integers
 
 
-#upper for is for that #this will be replaced with the image renamer files and automatically add the image first value
+# upper part =  file renamer 
 
-def image_not_exists():
+
+
+
+# downside =  functioning the btns in GUI
+
+def image_assecding():
     global image_num
     
     for num in file_number_array:
@@ -121,6 +126,7 @@ def image_not_exists():
         else:
             image_num = image_num
             print('problem exists-have to fix it')
+            
     update_image()
 
 def image_decending():
@@ -132,8 +138,8 @@ def image_decending():
             break
         else:
             image_num = image_num
-            print('file is not decending')
-    
+            print('file is not decending')    
+            
     update_image()
     
 
@@ -145,10 +151,10 @@ def denied(event = None):
     os.makedirs(deletion_folder, exist_ok=True)
     shutil.move('{}_IMG.JPG'.format(image_num) , deletion_folder)
     
-    image_num += 1  
+    # image_num += 1 
     
     if image_num not in file_number_array:
-        image_not_exists()
+        image_assecding()
         
     print('image has sent to To_Be_Deleted folder')
     update_image()
@@ -163,8 +169,11 @@ def approved(event = None):
     os.makedirs(approval_folder, exist_ok=True)
     shutil.move('{}_IMG.JPG'.format(image_num) , approval_folder)
     
-    image_num += 1
-    print('image has been Approved_files folder')
+    # image_num += 1
+    if image_num not in file_number_array:
+        image_assecding()
+        
+    print('image has been sent to Approved_files folder')
     update_image()   
     
     return image_num
@@ -173,8 +182,10 @@ def approved(event = None):
 def pre_image(event = None):
     global image_num
     
-    image_num = image_num - 1
+    # image_num = image_num - 1
+    
     print('pevious image')
+    
     image_decending()
     update_image()   
     
@@ -184,8 +195,12 @@ def pre_image(event = None):
 def next_image(event = None):
     global image_num
     
-    image_num += 1
+    # image_num += 1
+    
     print('next image')
+    
+    # image assending function 
+    image_assecding() 
     update_image()
      
     return image_num
@@ -200,7 +215,7 @@ def update_image():
         image_label.configure(image = image)
     else:
         print(f'Image {image_path} does not exists.')
-        image_not_exists()
+        image_assecding()
         
         
         #add the file_number_array to go to the closest next file
@@ -262,8 +277,6 @@ approval_Btn.place(x= 940, y= 600)
 next_Img_Btn = customtkinter.CTkButton(master=frame , text='>', corner_radius=30 , font=('Roboto', 24), command= next_image , height=32)
 next_Img_Btn.place(x= 1190, y= 600)
 
-image_value = customtkinter.CTkEntry(master= frame , placeholder_text="Enter the first value of the image you have (ex:- 569)", width=250 , height=45)
-image_value.place(x=200 , y= 330)
 
 
 #binding keys to the root window

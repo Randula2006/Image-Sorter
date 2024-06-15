@@ -6,7 +6,8 @@ import shutil
 from pathlib import Path
 
 # changing the directory to the folder with the images
-os.chdir(r'C:\Users\Randula\Desktop\Programming\python\Rebooting\projects\Image sorter\images')
+os.chdir(r'C:\Users\Randula\Desktop\Programming\python\Rebooting\projects\Image Sorter - Github\Image-Sorter\images')
+# have to change the file path when changing the directory 
 
 
 image_num =  int(input("enter the first value of the image you have")) #this will be replaced with the image renamer files and automatically add the image first value
