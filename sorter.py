@@ -102,6 +102,9 @@ if file_number_array:
 else:
     print("No file numbers collected.")
 
+file_number_array = sorted(file_number_array)
+# sorting the file numbers in the accesding order 
+
 
 ##################################################################
 # posible errors
@@ -110,8 +113,6 @@ else:
 
 
 # upper part =  file renamer 
-
-
 
 
 # downside =  functioning the btns in GUI
@@ -123,22 +124,29 @@ def image_assecding():
         if num > image_num:
             image_num = num
             break
+        elif num == image_num :
+            image_num = num 
+            print('highest image has been displayed')
         else:
-            image_num = image_num
-            print('problem exists-have to fix it')
+            print('there is no images above this')
+            continue
             
     update_image()
-
+    
 def image_decending():
     global image_num
     
     for num in reversed(file_number_array):
+        
         if num < image_num:
             image_num = num
             break
+        elif num == image_num :
+            image_num = num 
+            print('highest image has been displayed')
         else:
-            image_num = image_num
             print('file is not decending')    
+            continue
             
     update_image()
     
