@@ -8,14 +8,26 @@ Image sorter uses customTkinter as the GUI setup so users ahve to download the p
 the following command or can visit the main customTkinter website for more information 
 
 downlaod :- <br/> 
-[Custom Tkinter ](https://pypi.org/project/customtkinter/0.3/) <br/> 
-[RawPy](https://pypi.org/project/rawpy/)<br/> 
+[Custom Tkinter ](https://pypi.org/project/customtkinter/0.3/) 
+
+or the provided command can be used in the local terminal to download the package.
+
+` pip install customtkinter `
+
+# installation of RawPy and Imageio
+
+Images with CR3 file format cant be natively shown in customTkinter so Pil needs Rawpy and Imageio to display the 
+images in the GUI.
+
+download :- <br/>
+
+[RawPy](https://pypi.org/project/rawpy/) <br/>
 [imageio](https://pypi.org/project/imageio/)
 
 
 or the provided command can be used in the local terminal to download the package.
 
-` pip install customtkinter `<br/> 
+
 ` pip install rawpy `<br/> 
 ` pip install imageio `
 
