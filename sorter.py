@@ -91,45 +91,58 @@ def image_ascending():
     for num in file_number_array:
         if num > image_num:
             image_num = num
-            break
-        elif num == image_num:
-            print('Highest image has been displayed')
-        else:
-            print('No images above this')
-    update_image()
+            update_image()
+            return  # Exit the function after finding the next image
+    print('Highest image has been displayed')
+    # If no higher image number is found, keep displaying the current image
+
 
 def image_descending():
     global image_num
     for num in reversed(file_number_array):
         if num < image_num:
             image_num = num
-            break
-        elif num == image_num:
-            print('Lowest image has been displayed')
-        else:
-            print('No images below this')
-    update_image()
+            update_image()
+            return  # Exit the function after finding the previous image
+    print('Lowest image has been displayed')
+    # If no lower image number is found, keep displaying the current image
 
 # Functions for GUI button actions
 def denied(event=None):
     global image_num
+
     deletion_folder = 'To_Be_Deleted'
     os.makedirs(deletion_folder, exist_ok=True)
-    shutil.move(f'{image_num}_IMG.JPG', deletion_folder)
-    if image_num not in file_number_array:
+    
+    # Move the current image to the deletion folder
+    image_path = f'{image_num}_IMG.JPG'
+    if os.path.exists(image_path):
+        shutil.move(image_path, deletion_folder)
+        print(f'Image {image_path} has been sent to To_Be_Deleted folder')
+
+        # Move to the next image
         image_ascending()
-    print('Image has been sent to To_Be_Deleted folder')
+
     update_image()
+    return image_num
 
 def approved(event=None):
     global image_num
+
     approval_folder = 'Approved_files'
     os.makedirs(approval_folder, exist_ok=True)
-    shutil.move(f'{image_num}_IMG.JPG', approval_folder)
-    if image_num not in file_number_array:
+    
+    # Move the current image to the approval folder
+    image_path = f'{image_num}_IMG.JPG'
+    if os.path.exists(image_path):
+        shutil.move(image_path, approval_folder)
+        print(f'Image {image_path} has been sent to Approved_files folder')
+
+        # Move to the next image
         image_ascending()
-    print('Image has been sent to Approved_files folder')
+
     update_image()
+    return image_num
 
 def pre_image(event=None):
     global image_num
