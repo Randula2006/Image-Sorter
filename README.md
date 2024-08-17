@@ -7,16 +7,16 @@ Custom made image sorter for quickly decide manually what image is needed or not
 Image sorter uses customTkinter as the GUI setup so users ahve to download the packages through 
 the following command or can visit the main customTkinter website for more information 
 
-downlaod :- < br / > 
-[Custom Tkinter ](https://pypi.org/project/customtkinter/0.3/) < br / > 
-[RawPy](https://pypi.org/project/rawpy/)< br / > 
+downlaod :- <br/> 
+[Custom Tkinter ](https://pypi.org/project/customtkinter/0.3/) <br/> 
+[RawPy](https://pypi.org/project/rawpy/)<br/> 
 [imageio](https://pypi.org/project/imageio/)
 
 
 or the provided command can be used in the local terminal to download the package.
 
-` pip install customtkinter `< br / > 
-` pip install rawpy `< br / > 
+` pip install customtkinter `<br/> 
+` pip install rawpy `<br/> 
 ` pip install imageio `
 
 ## How to use the sorter 
